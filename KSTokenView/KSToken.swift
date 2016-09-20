@@ -187,7 +187,7 @@ public class KSToken : UIControl {
         let crossWidth : CGFloat = 10.0
         let crossRect = CGRect(x: rect.maxX - (paddingRight + crossWidth + 8), y: rect.minY +  (maxDrawableHeight - crossWidth)/2, width: crossWidth, height: crossWidth)
         
-        var crossPath = UIBezierPath()
+        let crossPath = UIBezierPath()
         crossPath.moveToPoint(CGPointMake(crossRect.minX, crossRect.minY))
         crossPath.addLineToPoint(CGPointMake(crossRect.maxX, crossRect.maxY))
         crossPath.moveToPoint(CGPointMake(crossRect.minX, crossRect.maxY))
@@ -213,9 +213,9 @@ public class KSToken : UIControl {
       
       rectangleTextContent.drawInRect(textRect, withAttributes: rectangleFontAttributes)
       
-      CGContextSaveGState(context)
-      CGContextClipToRect(context, rect)
-      CGContextRestoreGState(context)
+      CGContextSaveGState(context!)
+      CGContextClipToRect(context!, rect)
+      CGContextRestoreGState(context!)
       
       // Border
       if (borderWidth > 0.0 && borderColor != UIColor.clearColor()) {
